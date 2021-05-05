@@ -1,31 +1,38 @@
-# cw11
-## Paweł Rutkowski s18277
-Modele reprezentujące bazę danych z treści zadania można znaleźć w podkatalogu `Cw11/Models/`.
-Znajduje się tam również kontekst bazy danych `Cw11.Models.ClinicDbContext`.
+# Simple C# WebAPI
 
-Kontekst wykorzystuje zewnętrzne klasy konfigurujące strukturę tabel (zamiast adnotacji w modelach).
-Klasy te można znaleźć w podkatalogu `Cw11/Configurations/`.
+## Introduction
+**This project was created as a student assignment.**
 
-W kontekście można znaleźć również metodę pomocniczą seedujacą bazę danymi
+You can find my other C# APIs and assignments in my [student's github - s18277](https://github.com/s18277).
+
+## Description
+
+Models representing database can be found in subdirectory `Cw11/Models/`.
+You can also find there database context `Cw11.Models.ClinicDbContext`.
+
+Context uses external classes configuring table structure (instead of annotations in models themselves).
+These classes can be found in `Cw11/Configurations/` subdirectory.
+
+In DB context you can also find helper method seeding database with example data
 `Cw11.Models.ClinicDbContext.SeedDataToDb`.
 
-Kontroler obsługujący zapytania pod ścieżką `api/doctors` to `Cw11.Controllers.DoctorsController`.
-Zapewnia on 5 końcówek:
-* Pobranie informacji o wszystkich studentach - zapytanie `HTTP GET` na ścieżkę `api/doctors`
-* Pobranie informacji o jednym studencie - zapytanie `HTTP GET` na ścieżkę `api/doctors/{id}`
-* Dodanie nowego studenta - zapytanie `HTTP POST` na ścieżkę `api/doctors`
-* Modyfikacja studenta - zapytanie `HTTP PUT` na ścieżkę `api/doctors/{id}`
-* Usunięcie studenta - zapytanie `HTTP DELETE` na ścieżkę `api/doctors/{id}`
+Controller handling requests for path `api/doctors` is `Cw11.Controllers.DoctorsController`.
+It provides 5 endpoints:
+* Get information about all doctors - `HTTP GET` request under `api/doctors`
+* Get information about single doctor - `HTTP GET` request under `api/doctors/{id}`
+* Add new doctor - `HTTP POST` request under `api/doctors`
+* Modify doctor - `HTTP PUT` request under `api/doctors/{id}`
+* Delete doctor - `HTTP DELETE` request under `api/doctors/{id}`
 
-Szczegóły można sprawdzić w dokumentacji wygenerowanej automatycznie przy pomocy
+Details can be found in documentation generated automatically using
 [Swagger/OpenAPI](https://github.com/domaindrivendev/Swashbuckle.AspNetCore).
-Dokumentację w formacie graficznym można otworzyć przez ścieżkę `/swagger/index.html`.
-Dokuemntację w formacie JSON można pobrać ze ścieżki `/swagger/v1/swagger.json`.
+Documentation in graphical format can be opened under `/swagger/index.html`.
+Documentation in JSON format can be found under `/swagger/v1/swagger.json`.
 
-Komunikacja z bazą danych jest realizowana przez serwis - interfejs `Cw11.Services.IClinicDbService`
-i jego implementację `Cw11.Services.EfcClinicDbService`. Implementacja ta wykorzystuje `Entity
+Communication with database is done using service - interface `Cw11.Services.IClinicDbService`
+and it's implementation `Cw11.Services.EfcClinicDbService`. This implemnetation is using `Entity
 Framework Core` i `LINQ`.
 
-W repozytorium znajdują się również dwie migracje:
-* `InitialModelsAndConfigurations` - struktura tabel
-* `SeedData` - dodanie przykładowych danych do bazy
+In this repository you can find two migrations:
+* `InitialModelsAndConfigurations` - table structure
+* `SeedData` - adding example data to database
